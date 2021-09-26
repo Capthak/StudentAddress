@@ -73,3 +73,8 @@ def mks():
           raise MarksInvalid('enter valid marks')
      else:
           return mks
+def ad_list(l):
+    if len(l)<=0:
+        raise AddressInvalid("no add to add add some addresses")
+    else:
+        return True

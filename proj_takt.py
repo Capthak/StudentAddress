@@ -21,6 +21,7 @@ def create_stu(l):
     while True:
         try:
             n=int(input('enter no of Students to be added'))
+            break
         except ValueError as e:
             print(e)
     for i in range(n):
@@ -105,13 +106,21 @@ while True:
           except ValueError as r :
                print(r)
      if ch==1:
-         if adr_list:
+         
+         while True:
+             try:
+                 ad=(adr_list)
+                 break
+             except AddressInvalid as r:
+                 print(r)
+         if ad:
              print("----Menu Student---\n"\
                   "1.Create Student \n"\
                   "2.Update Student\n"\
                   "3.Delete Student\n"\
                   "4.Show Students\n"\
-                  "5.exit")
+                  "5.Show Student by Marks"
+                  "6.exit")
              while True:
                  while True:
                      try:
@@ -156,8 +165,22 @@ while True:
                          print(i.get_name())
                          print(i.get_marks())
                          print(i.get_add())
-                    
                  elif ch1==5:
+                     new_list=sorted(stu_list,key=lambda x:x.get_marks(),reverse=True)
+                     new_list2=sorted(stu_list,key=lambda x:x.get_marks())
+                     print("decending")
+                     for i in new_list:
+                         print(i.get_marks(),i.get_name(),i.get_rn())
+                     print("asscending")
+                     for i in new_list2:
+                         print(i.get_marks(),i.get_name(),i.get_rn())
+                         
+                         
+                         
+                    
+                         
+                    
+                 elif ch1==6:
                      break
          else:
              print("no address to add in student add some addresss")
@@ -213,12 +236,13 @@ while True:
                  for i in adr_list:
                      print(i.get_city())
                      print(i.get_pin())
-                     
+             
+                    
              elif ch1==5:
                  break                          
      else:
          print("no data in address add data in address")
-         break
+         
             
             
                      
